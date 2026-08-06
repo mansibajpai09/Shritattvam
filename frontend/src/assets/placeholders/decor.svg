@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice">
+  <rect width="200" height="200" fill="#F5F0E8"/>
+  <path d="M100 60 Q120 100 100 140 Q80 100 100 60" fill="#C5A059" opacity="0.7"/>
+  <ellipse cx="100" cy="145" rx="25" ry="8" fill="#B8956A"/>
+  <ellipse cx="100" cy="55" rx="6" ry="10" fill="#FF8C42" opacity="0.8"/>
+  <text x="100" y="185" text-anchor="middle" fill="#C5A059" opacity="0.5" font-size="9">Decor</text>
+</svg>
