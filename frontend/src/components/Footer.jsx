@@ -1,6 +1,12 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import logoIcon from '../assets/logo-icon.svg'
-const navLinks = ['About Us', 'Order Tracking', 'Exchange Orders', 'Contact Us']
+const navLinks = [
+  { label: 'About Us', path: '/about' },
+  { label: 'Order Tracking', path: '/orders' },
+  { label: 'Exchange Orders', path: '/exchange-orders' },
+  { label: 'Contact Us', path: '/contact' },
+]
 const policyLinks = ['Disclaimer', 'Exchange Only', 'Terms & Conditions', 'Privacy Policy']
 function SocialIcon({ children, label }) {
   return (
@@ -58,18 +64,25 @@ function Footer() {
             </div>
           </div>
           {/* Navigation */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-brown">Navigation</h3>
-            <ul className="mt-4 space-y-3">
-              {navLinks.map((link) => (
-                <li key={link}>
-                  <a href={`#${link.toLowerCase().replace(/\s+/g, '-')}`} className="text-sm text-brown-muted transition-colors duration-300 hover:text-brown">
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+         {/* Navigation */}
+<div>
+  <h3 className="text-sm font-semibold uppercase tracking-wider text-brown">
+    Navigation
+  </h3>
+
+  <ul className="mt-4 space-y-3">
+    {navLinks.map((link) => (
+      <li key={link.label}>
+        <Link
+          to={link.path}
+          className="text-sm text-brown-muted transition-colors duration-300 hover:text-brown"
+        >
+          {link.label}
+        </Link>
+      </li>
+    ))}
+  </ul>
+</div>
           {/* Policy */}
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-brown">Policy</h3>

@@ -1,12 +1,19 @@
-import React from 'react'
+import { Navigate } from 'react-router-dom'
+import { useCart } from '../context/CartContext'
 
-const App = () => {
+function PlaceOrder() {
+  const { cartItems } = useCart()
+
+  if (!cartItems.length) {
+    return <Navigate to="/cart" replace />
+  }
+
   return (
-    <div>
-      App
-      
-      </div>
+    <Navigate
+      to="/checkout"
+      replace
+    />
   )
 }
 
-export default App
+export default PlaceOrder

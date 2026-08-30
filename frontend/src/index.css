@@ -37,4 +37,18 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+.checkout-input {
+  width: 100%;
+  border: 1px solid rgba(74, 55, 40, 0.12);
+  border-radius: 0.5rem;
+  background: white;
+  padding: 0.8rem 1rem;
+  font-size: 0.875rem;
+  outline: none;
+}
+
+.checkout-input:focus {
+  border-color: rgba(201, 148, 69, 0.55);
+  box-shadow: 0 0 0 3px rgba(201, 148, 69, 0.08);
+}
 }
