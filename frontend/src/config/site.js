@@ -1,5 +1,5 @@
 export const SITE = {
-  name: 'ShriTatvam',
+  name: 'ShriTattvam',
   tagline:
     'Premium pooja essentials, exquisitely curated for a divine experience.',
   phoneDisplay: '+91 82998 29846',

@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { CartProvider } from './context/CartContext'
+import ScrollToTop from "./components/ScrollToTop";
+
 
 import Home from './pages/home'
 import Collection from './pages/collection'
@@ -11,11 +13,16 @@ import Contact from './pages/contact'
 import Login from './pages/login'
 import Orders from './pages/Orders'
 import PlaceOrder from './pages/PlaceOrder'
+import Disclaimer from './pages/Disclaimer'
+import ExchangePolicy from './pages/ExchangePolicy'
+import TermsAndConditions from './pages/TermsAndConditions'
+import PrivacyPolicy from './pages/PrivacyPolicy'
 
 function App() {
   return (
     <CartProvider>
       <BrowserRouter>
+      <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
 
@@ -59,7 +66,12 @@ function App() {
           <Route
             path="/place-order"
             element={<PlaceOrder />}
+          
           />
+          <Route path="/disclaimer" element={<Disclaimer />} />
+<Route path="/exchange-policy" element={<ExchangePolicy />} />
+<Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+<Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
           <Route
             path="*"

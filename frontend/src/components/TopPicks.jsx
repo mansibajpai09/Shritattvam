@@ -36,7 +36,7 @@ function TopPicks() {
       <div className="section-container">
         <div className="mb-8 flex items-center justify-between">
           <h2 className="section-heading">Top Picks</h2>
-          <a href="#all" className="view-all-link">View All</a>
+          
         </div>
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_1fr] lg:grid-rows-[1fr_1fr] lg:gap-5">
           {/* Large card — Pooja Kits */}

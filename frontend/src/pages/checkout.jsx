@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { useCart } from '../context/CartContext'
 import { formatCurrency } from '../utils/formatCurrency'
+import Breadcrumb from "../components/Breadcrumb";
 
 function Checkout() {
   const {
@@ -21,6 +22,7 @@ function Checkout() {
   return (
     <div className="min-h-screen bg-cream-light">
       <Navbar />
+      <Breadcrumb currentPage="Checkout" />
 
       <main className="section-container py-8 md:py-14">
         <div className="mb-8">

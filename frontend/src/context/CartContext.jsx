@@ -11,7 +11,7 @@ import { validateCoupon } from '../data/coupons'
 export const FREE_SHIPPING_THRESHOLD = 999
 export const STANDARD_SHIPPING = 60
 
-const STORAGE_KEY = 'shritatvam-cart'
+const STORAGE_KEY = 'shritattvam-cart'
 
 const initialState = {
   items: [],

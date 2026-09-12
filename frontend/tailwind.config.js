@@ -19,6 +19,11 @@ export default {
           light: '#D4B574',
           dark: '#A8863F',
         },
+        sage: {
+          DEFAULT: '#6B7F5A',
+          dark: '#4F6344',
+          light: '#EEF5E8',
+        },
       },
       fontFamily: {
         serif: ['"Playfair Display"', 'Georgia', 'serif'],

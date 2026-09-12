@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import contactHeroImage from "../../assets/placeholders/ContactHero.svg";
+import Breadcrumb from "../Breadcrumb";
 const ContactHero = () => {
   return (
     <section className="relative overflow-hidden bg-[#f8f3eb]">
@@ -10,24 +11,13 @@ const ContactHero = () => {
 
       <div className="relative mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-10">
         {/* Breadcrumb */}
-        <div className="pt-7 text-[11px] tracking-wide text-[#6d6258]">
-          <Link
-            to="/"
-            className="transition-colors duration-300 hover:text-[#9b6b2f]"
-          >
-            Home
-          </Link>
-
-          <span className="mx-2 text-[#b79a72]">›</span>
-
-          <span className="text-[#211a14]">Contact Us</span>
-        </div>
+       <Breadcrumb currentPage="Contact Us" />
 
         <div className="grid min-h-[390px] grid-cols-1 items-center lg:grid-cols-[0.92fr_1.08fr]">
           {/* LEFT */}
           <div className="relative z-10 py-12 lg:py-14">
             <p className="mb-4 font-serif text-[13px] uppercase tracking-[0.28em] text-[#9b6b2f]">
-              Connect With ShriTatvam
+              Connect With ShriTattvam
             </p>
 
             <h1 className="font-serif text-[44px] leading-[1.05] text-[#19130e] sm:text-[52px] lg:text-[58px]">
@@ -65,7 +55,7 @@ const ContactHero = () => {
 
             <img
               src={contactHeroImage}
-              alt="ShriTatvam sacred pooja essentials"
+              alt="ShriTattvam sacred pooja essentials"
               className="relative z-10 h-full w-full object-contain object-bottom"
             />
           </div>

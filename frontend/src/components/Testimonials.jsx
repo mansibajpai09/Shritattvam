@@ -12,7 +12,7 @@ const testimonials = [
     author: 'Priya Sharma',
   },
   {
-    quote: 'The incense sticks have the most calming fragrance. Highly recommend ShriTatvam.',
+    quote: 'The incense sticks have the most calming fragrance. Highly recommend ShriTattvam.',
     author: 'Meera Patel',
   },
 ]

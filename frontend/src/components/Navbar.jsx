@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import logoIcon from '../assets/logo-icon.svg'
+import logoIcon from '../assets/final logo.svg'
 import { useCart } from '../context/CartContext'
 
 const navLinks = [
@@ -86,17 +86,13 @@ function Navbar() {
       {showBanner && (
         <div className="relative bg-brown-dark px-10 py-2.5 text-center">
           <p className="text-xs font-medium tracking-wide text-white/90">
+          <span className="mx-2">|</span>
             Free Shipping on Orders above ₹999
             <span className="mx-2">|</span>
             10% OFF on First Purchase
             <span className="mx-2">|</span>
 
-            <Link
-              to="/collection"
-              className="underline underline-offset-2"
-            >
-              Shop Now
-            </Link>
+            
           </p>
 
           <button
@@ -118,12 +114,12 @@ function Navbar() {
           >
             <img
               src={logoIcon}
-              alt="ShriTatvam"
+              alt="ShriTattvam"
               className="h-8 w-8"
             />
 
             <span className="font-serif text-xl font-semibold text-brown">
-              ShriTatvam
+              ShriTattvam
             </span>
           </Link>
 
@@ -143,35 +139,52 @@ function Navbar() {
           </nav>
 
           <div className="flex items-center gap-4 text-brown-muted">
-            <button
-              type="button"
-              aria-label="Search"
-              className="hover:text-brown"
-            >
-              <SearchIcon />
-            </button>
+           <div className="group relative flex flex-col items-center">
+    <button
+        type="button"
+        aria-label="Search"
+        className="hover:text-brown"
+    >
+        <SearchIcon />
+    </button>
 
-            <Link
-              to="/login"
-              aria-label="Account"
-              className="hover:text-brown"
-            >
-              <UserIcon />
-            </Link>
+    <span className="absolute top-full mt-2 whitespace-nowrap text-xs text-brown opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+        Search
+    </span>
+</div>
 
-            <Link
-              to="/cart"
-              aria-label={`Cart with ${totalItems} items`}
-              className="relative hover:text-brown"
-            >
-              <BagIcon />
+           <div className="group relative flex flex-col items-center">
+    <Link
+        to="/login"
+        aria-label="Account"
+        className="hover:text-brown"
+    >
+        <UserIcon />
+    </Link>
 
-              {totalItems > 0 && (
-                <span className="absolute -right-2.5 -top-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-gold px-1 text-[9px] font-bold text-brown-dark">
-                  {totalItems > 99 ? '99+' : totalItems}
-                </span>
-              )}
-            </Link>
+    <span className="absolute top-full mt-2 whitespace-nowrap text-xs text-brown opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+        Account
+    </span>
+</div>
+           <div className="group relative flex flex-col items-center">
+    <Link
+        to="/cart"
+        aria-label={`Cart with ${totalItems} items`}
+        className="relative hover:text-brown"
+    >
+        <BagIcon />
+
+        {totalItems > 0 && (
+            <span className="absolute -right-2.5 -top-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-gold px-1 text-[9px] font-bold text-brown-dark">
+                {totalItems > 99 ? '99+' : totalItems}
+            </span>
+        )}
+    </Link>
+
+    <span className="absolute top-full mt-2 whitespace-nowrap text-xs text-brown opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+        Cart
+    </span>
+</div>
           </div>
         </div>
       </nav>

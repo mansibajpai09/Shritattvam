@@ -3,16 +3,18 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { products } from '../data/products'
 import { formatCurrency } from '../utils/formatCurrency'
+import Breadcrumb from "../components/Breadcrumb";
 
 function Collection() {
   return (
     <div className="min-h-screen bg-cream-light">
       <Navbar />
+      <Breadcrumb currentPage="Collection" />
 
       <main className="section-container py-10 md:py-16">
         <div className="mb-10">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-dark">
-            ShriTatvam
+            ShriTattvam
           </p>
 
           <h1 className="mt-2 font-serif text-3xl text-brown sm:text-4xl">
@@ -28,10 +30,11 @@ function Collection() {
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 lg:gap-6">
           {products.map((product) => (
             <Link
-              key={product.id}
-              to={`/product/${product.id}`}
-              className="group min-w-0"
-            >
+  key={product.id}
+  to={`/product/${product.id}`}
+  state={{ from: "Collection", fromPath: "/collection" }}
+  className="group min-w-0"
+>
               <div className="aspect-square overflow-hidden rounded-xl bg-cream-card shadow-card">
                 <img
                   src={product.image}

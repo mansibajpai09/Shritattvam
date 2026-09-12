@@ -24,7 +24,7 @@ const faqs = [
   {
     question: "Do you ship all over India?",
     answer:
-      "Yes. ShriTatvam products can be delivered across India, subject to service availability at your location.",
+      "Yes. ShriTattvam products can be delivered across India, subject to service availability at your location.",
   },
   {
     question: "Do you offer bulk orders?",

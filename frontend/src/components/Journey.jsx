@@ -19,7 +19,7 @@ function Journey() {
           <div>
             <h2 className="section-heading mb-6">Our Journey</h2>
             <p className="text-[15px] leading-[1.8] text-brown-muted">
-              ShriTatvam was born from a deep reverence for tradition and a desire to bring
+              ShriTattvam was born from a deep reverence for tradition and a desire to bring
               authentic, premium pooja essentials to every home. We carefully source each item —
               from hand-crafted brass diyas to pure sandalwood incense — ensuring that every
               ritual you perform is enriched with purity and devotion. Our mission is simple:

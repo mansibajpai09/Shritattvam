@@ -1,6 +1,6 @@
 const coupons = [
   {
-    code: 'SHRITATVAM10',
+    code: 'SHRITATTVAM10',
     type: 'percentage',
     value: 10,
   },

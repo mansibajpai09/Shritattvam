@@ -11,13 +11,10 @@ export const ROUTES = {
   ORDER_TRACKING: '/order-tracking',
   PLACE_ORDER: '/place-order',
   POLICIES: {
-    DISCLAIMER: '/policies/disclaimer',
-    EXCHANGE: '/policies/exchange',
-    TERMS: '/policies/terms',
-    PRIVACY: '/policies/privacy',
-    SHIPPING: '/policies/shipping',
-    RETURNS: '/policies/returns',
-    CANCELLATION: '/policies/cancellation',
+    DISCLAIMER: '/disclaimer',
+EXCHANGE_POLICY: '/exchange-policy',
+TERMS: '/terms-and-conditions',
+PRIVACY: '/privacy-policy',
   },
 }
 

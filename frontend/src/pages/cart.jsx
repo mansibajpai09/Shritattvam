@@ -8,6 +8,7 @@ import CartItems from '../components/cartpage/CartItems'
 import OrderSummary from '../components/cartpage/OrderSummary'
 import EmptyCart from '../components/cartpage/EmptyCart'
 import CartTrustFeatures from '../components/cartpage/CartTrustFeatures'
+import Breadcrumb from "../components/Breadcrumb";
 
 import { useCart } from '../context/CartContext'
 
@@ -18,6 +19,7 @@ function Cart() {
   return (
     <div className="min-h-screen bg-cream-light">
       <Navbar />
+      <Breadcrumb currentPage="Cart" />
 
       <main className="section-container py-8 md:py-12">
         <CartBreadcrumb />

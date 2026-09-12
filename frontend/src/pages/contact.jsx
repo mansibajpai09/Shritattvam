@@ -11,7 +11,7 @@ import ServiceHighlights from "../components/contactpage/ServiceHighlights";
 
 const Contact = () => {
   return (
-    <div className="min-h-screen bg-[#f8f3eb] text-[#211912]">
+    <div className="min-h-screen bg-[#fcfaf7] text-[#211912]">
       <Navbar />
 
       <main>
