@@ -1,0 +1,8 @@
+{
+  "name": "ShriTattvam",
+  "description": "Premium pooja essentials and spiritual wellness e-commerce store offering incense, brass decor, pooja kits, and sacred items.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
