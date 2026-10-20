@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { CartProvider } from './context/CartContext'
+import { AuthProvider } from './context/AuthContext'
 import ScrollToTop from "./components/ScrollToTop";
-
 
 import Home from './pages/home'
 import Collection from './pages/collection'
@@ -17,13 +17,17 @@ import Disclaimer from './pages/Disclaimer'
 import ExchangePolicy from './pages/ExchangePolicy'
 import TermsAndConditions from './pages/TermsAndConditions'
 import PrivacyPolicy from './pages/PrivacyPolicy'
+import AdminDashboard from './pages/admin/Dashboard'
 
 function App() {
   return (
-    <CartProvider>
-      <BrowserRouter>
-      <ScrollToTop />
-        <Routes>
+    <AuthProvider>
+      <CartProvider>
+        <BrowserRouter>
+        <ScrollToTop />
+          <Routes>
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/dashboard" element={<Navigate to="/admin" replace />} />
           <Route path="/" element={<Home />} />
 
           <Route
@@ -84,7 +88,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </CartProvider>
-    
+  </AuthProvider>
   )
 }
 

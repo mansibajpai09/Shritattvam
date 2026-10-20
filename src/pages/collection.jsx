@@ -26,6 +26,20 @@ function Collection() {
   const [searchParams, setSearchParams] = useSearchParams()
   const { addToCart } = useCart()
 
+  const [allProducts, setAllProducts] = useState(products)
+
+  // Fetch live products from database
+  useEffect(() => {
+    fetch('/api/products')
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          setAllProducts(data)
+        }
+      })
+      .catch((err) => console.warn('Using local products data:', err))
+  }, [])
+
   // State
   const initialCategory = searchParams.get('category') || 'All'
   const [selectedCategory, setSelectedCategory] = useState(
@@ -51,16 +65,16 @@ function Collection() {
 
   // Category counts
   const categoryCounts = useMemo(() => {
-    const counts = { All: products.length }
-    products.forEach((p) => {
+    const counts = { All: allProducts.length }
+    allProducts.forEach((p) => {
       counts[p.category] = (counts[p.category] || 0) + 1
     })
     return counts
-  }, [])
+  }, [allProducts])
 
   // Filtered and sorted products
   const filteredProducts = useMemo(() => {
-    return products
+    return allProducts
       .filter((product) => {
         // Category filter
         if (selectedCategory !== 'All' && product.category !== selectedCategory) {
@@ -141,8 +155,8 @@ function Collection() {
             <div className="flex flex-wrap items-center justify-between md:justify-end gap-3 pt-2 md:pt-0">
               <span className="text-xs font-medium text-brown-muted tabular-nums">
                 {isFiltered
-                  ? `Showing ${filteredProducts.length} of ${products.length} products`
-                  : `Showing all ${products.length} products`}
+                  ? `Showing ${filteredProducts.length} of ${allProducts.length} products`
+                  : `Showing all ${allProducts.length} products`}
               </span>
 
               {/* Mobile Filter Button */}

@@ -157,6 +157,14 @@ function Navbar() {
                   About
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/admin"
+                  className="text-[13px] font-semibold uppercase tracking-[0.08em] text-gold-dark hover:text-brown transition-colors"
+                >
+                  Dashboard
+                </Link>
+              </li>
             </ul>
           </nav>
 
@@ -262,6 +270,15 @@ function Navbar() {
                   className="block py-1 text-sm font-medium uppercase tracking-wider text-brown-muted hover:text-brown transition-colors"
                 >
                   About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/admin"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block py-1 text-sm font-semibold uppercase tracking-wider text-gold-dark hover:text-brown transition-colors"
+                >
+                  Dashboard
                 </Link>
               </li>
             </ul>
