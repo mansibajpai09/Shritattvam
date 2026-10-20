@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice">
-  <rect width="300" height="300" fill="#F5F0E8"/>
-  <path d="M150 100 Q170 140 150 180 Q130 140 150 100" fill="#C5A059" opacity="0.7"/>
-  <ellipse cx="150" cy="185" rx="30" ry="10" fill="#B8956A"/>
-  <ellipse cx="150" cy="95" rx="8" ry="12" fill="#FF8C42" opacity="0.8"/>
-</svg>

@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice">
-  <rect width="200" height="200" fill="#F5F0E8"/>
-  <rect x="85" y="60" width="6" height="80" rx="2" fill="#A8863F"/>
-  <rect x="97" y="50" width="6" height="90" rx="2" fill="#C5A059"/>
-  <rect x="109" y="70" width="6" height="70" rx="2" fill="#B8956A"/>
-  <ellipse cx="100" cy="150" rx="30" ry="8" fill="#D4B574" opacity="0.5"/>
-  <text x="100" y="185" text-anchor="middle" fill="#C5A059" opacity="0.5" font-size="9">Incense</text>
-</svg>
