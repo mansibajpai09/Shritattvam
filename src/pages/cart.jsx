@@ -1,6 +1,7 @@
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
+import CartBreadcrumb from '../components/cartpage/CartBreadcrumb'
 import CartHeader from '../components/cartpage/CartHeader'
 import FreeShippingProgress from '../components/cartpage/FreeShippingProgress'
 import CartItems from '../components/cartpage/CartItems'
@@ -21,6 +22,8 @@ function Cart() {
       <Breadcrumb currentPage="Cart" />
 
       <main className="section-container py-8 md:py-12">
+        <CartBreadcrumb />
+
         {isEmpty ? (
           <EmptyCart />
         ) : (

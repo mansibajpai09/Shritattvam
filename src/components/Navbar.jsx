@@ -1,8 +1,13 @@
 import { useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import logoIcon from '../assets/final logo.svg'
 import { useCart } from '../context/CartContext'
-import { scrollToCollections } from '../utils/navigation'
+
+const navLinks = [
+  { label: 'Shop', to: '/collection' },
+  { label: 'Collection', to: '/collection' },
+  { label: 'About', to: '/about' },
+]
 
 function SearchIcon() {
   return (
@@ -74,21 +79,7 @@ function CloseIcon() {
 
 function Navbar() {
   const [showBanner, setShowBanner] = useState(true)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { totalItems } = useCart()
-  const location = useLocation()
-  const navigate = useNavigate()
-
-  const handleCollectionClick = (e) => {
-    if (e) e.preventDefault()
-    setIsMobileMenuOpen(false)
-
-    if (location.pathname === '/') {
-      scrollToCollections()
-    } else {
-      navigate('/', { state: { scrollTo: 'collections' } })
-    }
-  }
 
   return (
     <header className="sticky top-0 z-50">
@@ -100,6 +91,8 @@ function Navbar() {
             <span className="mx-2">|</span>
             10% OFF on First Purchase
             <span className="mx-2">|</span>
+
+            
           </p>
 
           <button
@@ -132,158 +125,68 @@ function Navbar() {
 
           <nav className="hidden lg:block">
             <ul className="flex items-center gap-8">
-              <li>
-                <Link
-                  to="/collection"
-                  className="text-[13px] font-medium uppercase tracking-[0.08em] text-brown-muted hover:text-brown transition-colors"
-                >
-                  Shop
-                </Link>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={handleCollectionClick}
-                  className="text-[13px] font-medium uppercase tracking-[0.08em] text-brown-muted hover:text-brown transition-colors cursor-pointer bg-transparent border-0 p-0"
-                >
-                  Collection
-                </button>
-              </li>
-              <li>
-                <Link
-                  to="/about"
-                  className="text-[13px] font-medium uppercase tracking-[0.08em] text-brown-muted hover:text-brown transition-colors"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/admin"
-                  className="text-[13px] font-semibold uppercase tracking-[0.08em] text-gold-dark hover:text-brown transition-colors"
-                >
-                  Dashboard
-                </Link>
-              </li>
+              {navLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.to}
+                    className="text-[13px] font-medium uppercase tracking-[0.08em] text-brown-muted hover:text-brown"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
 
           <div className="flex items-center gap-4 text-brown-muted">
-            <div className="group relative flex flex-col items-center">
-              <button
-                type="button"
-                aria-label="Search"
-                className="hover:text-brown"
-              >
-                <SearchIcon />
-              </button>
+           <div className="group relative flex flex-col items-center">
+    <button
+        type="button"
+        aria-label="Search"
+        className="hover:text-brown"
+    >
+        <SearchIcon />
+    </button>
 
-              <span className="absolute top-full mt-2 whitespace-nowrap text-xs text-brown opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-                Search
-              </span>
-            </div>
+    <span className="absolute top-full mt-2 whitespace-nowrap text-xs text-brown opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+        Search
+    </span>
+</div>
 
-            <div className="group relative flex flex-col items-center">
-              <Link
-                to="/login"
-                aria-label="Account"
-                className="hover:text-brown"
-              >
-                <UserIcon />
-              </Link>
+           <div className="group relative flex flex-col items-center">
+    <Link
+        to="/login"
+        aria-label="Account"
+        className="hover:text-brown"
+    >
+        <UserIcon />
+    </Link>
 
-              <span className="absolute top-full mt-2 whitespace-nowrap text-xs text-brown opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-                Account
-              </span>
-            </div>
+    <span className="absolute top-full mt-2 whitespace-nowrap text-xs text-brown opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+        Account
+    </span>
+</div>
+           <div className="group relative flex flex-col items-center">
+    <Link
+        to="/cart"
+        aria-label={`Cart with ${totalItems} items`}
+        className="relative hover:text-brown"
+    >
+        <BagIcon />
 
-            <div className="group relative flex flex-col items-center">
-              <Link
-                to="/cart"
-                aria-label={`Cart with ${totalItems} items`}
-                className="relative hover:text-brown"
-              >
-                <BagIcon />
+        {totalItems > 0 && (
+            <span className="absolute -right-2.5 -top-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-gold px-1 text-[9px] font-bold text-brown-dark">
+                {totalItems > 99 ? '99+' : totalItems}
+            </span>
+        )}
+    </Link>
 
-                {totalItems > 0 && (
-                  <span className="absolute -right-2.5 -top-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-gold px-1 text-[9px] font-bold text-brown-dark">
-                    {totalItems > 99 ? '99+' : totalItems}
-                  </span>
-                )}
-              </Link>
-
-              <span className="absolute top-full mt-2 whitespace-nowrap text-xs text-brown opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-                Cart
-              </span>
-            </div>
-
-            {/* Mobile menu toggle */}
-            <button
-              type="button"
-              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-              className="p-1 hover:text-brown lg:hidden"
-            >
-              {isMobileMenuOpen ? (
-                <CloseIcon />
-              ) : (
-                <svg
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-              )}
-            </button>
+    <span className="absolute top-full mt-2 whitespace-nowrap text-xs text-brown opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+        Cart
+    </span>
+</div>
           </div>
         </div>
-
-        {/* Mobile menu dropdown */}
-        {isMobileMenuOpen && (
-          <div className="border-t border-brown/10 bg-cream-light/98 px-6 py-4 shadow-sm backdrop-blur-sm lg:hidden">
-            <ul className="flex flex-col space-y-3">
-              <li>
-                <Link
-                  to="/collection"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block py-1 text-sm font-medium uppercase tracking-wider text-brown-muted hover:text-brown transition-colors"
-                >
-                  Shop
-                </Link>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={handleCollectionClick}
-                  className="block w-full text-left py-1 text-sm font-medium uppercase tracking-wider text-brown-muted hover:text-brown transition-colors cursor-pointer bg-transparent border-0 p-0"
-                >
-                  Collection
-                </button>
-              </li>
-              <li>
-                <Link
-                  to="/about"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block py-1 text-sm font-medium uppercase tracking-wider text-brown-muted hover:text-brown transition-colors"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/admin"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block py-1 text-sm font-semibold uppercase tracking-wider text-gold-dark hover:text-brown transition-colors"
-                >
-                  Dashboard
-                </Link>
-              </li>
-            </ul>
-          </div>
-        )}
       </nav>
     </header>
   )

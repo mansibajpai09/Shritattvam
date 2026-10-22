@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2C1F14"/>
+      <stop offset="100%" style="stop-color:#1A120B"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="50%" r="60%">
+      <stop offset="0%" style="stop-color:#C5A059;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#1A120B;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#heroGrad)"/>
+  <rect width="1200" height="600" fill="url(#glow)"/>
+  <!-- Placeholder brass items -->
+  <ellipse cx="350" cy="420" rx="180" ry="30" fill="#0D0906" opacity="0.5"/>
+  <ellipse cx="700" cy="440" rx="140" ry="25" fill="#0D0906" opacity="0.4"/>
+  <!-- Diya -->
+  <path d="M320 380 Q340 340 360 380 Q380 400 340 410 Q300 400 320 380" fill="#C5A059" opacity="0.8"/>
+  <ellipse cx="340" cy="375" rx="8" ry="12" fill="#FF8C42" opacity="0.9"/>
+  <!-- Brass bowl -->
+  <ellipse cx="550" cy="390" rx="60" ry="15" fill="#B8956A"/>
+  <path d="M490 390 Q490 340 550 330 Q610 340 610 390" fill="#C5A059" opacity="0.7"/>
+  <!-- Incense holder -->
+  <rect x="680" y="350" width="8" height="60" rx="2" fill="#A8863F"/>
+  <rect x="720" y="360" width="8" height="50" rx="2" fill="#C5A059"/>
+  <rect x="760" y="345" width="8" height="65" rx="2" fill="#B8956A"/>
+  <!-- Marigold flowers -->
+  <circle cx="200" cy="450" r="18" fill="#FF8C42" opacity="0.6"/>
+  <circle cx="230" cy="460" r="14" fill="#FFA042" opacity="0.5"/>
+  <circle cx="900" cy="430" r="16" fill="#FF8C42" opacity="0.5"/>
+  <text x="600" y="300" text-anchor="middle" fill="#C5A059" opacity="0.3" font-family="serif" font-size="14">Hero Image Placeholder</text>
+</svg>
