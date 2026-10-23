@@ -1,13 +1,9 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logoIcon from '../assets/final logo.svg'
 import { useCart } from '../context/CartContext'
-
-const navLinks = [
-  { label: 'Shop', to: '/collection' },
-  { label: 'Collection', to: '/collection' },
-  { label: 'About', to: '/about' },
-]
+import { useAuth } from '../context/AuthContext'
+import { scrollToCollections } from '../utils/navigation'
 
 function SearchIcon() {
   return (
@@ -77,22 +73,55 @@ function CloseIcon() {
   )
 }
 
+function MenuIcon() {
+  return (
+    <svg
+      className="h-5 w-5"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={1.5}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  )
+}
+
 function Navbar() {
   const [showBanner, setShowBanner] = useState(true)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { totalItems } = useCart()
+  const { user, signOut } = useAuth()
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const handleCollectionClick = (e) => {
+    if (e && e.preventDefault) {
+      e.preventDefault()
+    }
+    setMobileMenuOpen(false)
+
+    if (location.pathname === '/') {
+      scrollToCollections()
+    } else {
+      navigate('/', { state: { scrollToSection: 'collections' } })
+    }
+  }
 
   return (
     <header className="sticky top-0 z-50">
       {showBanner && (
         <div className="relative bg-brown-dark px-10 py-2.5 text-center">
           <p className="text-xs font-medium tracking-wide text-white/90">
-          <span className="mx-2">|</span>
+            <span className="mx-2">|</span>
             Free Shipping on Orders above ₹999
             <span className="mx-2">|</span>
             10% OFF on First Purchase
             <span className="mx-2">|</span>
-
-            
           </p>
 
           <button
@@ -123,70 +152,168 @@ function Navbar() {
             </span>
           </Link>
 
+          {/* Desktop Navigation */}
           <nav className="hidden lg:block">
             <ul className="flex items-center gap-8">
-              {navLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    to={link.to}
-                    className="text-[13px] font-medium uppercase tracking-[0.08em] text-brown-muted hover:text-brown"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link
+                  to="/collection"
+                  className="text-[13px] font-medium uppercase tracking-[0.08em] text-brown-muted transition-colors duration-200 hover:text-brown"
+                >
+                  Shop
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="/#collections"
+                  onClick={handleCollectionClick}
+                  className="cursor-pointer text-[13px] font-medium uppercase tracking-[0.08em] text-brown-muted transition-colors duration-200 hover:text-brown"
+                >
+                  Collection
+                </a>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  className="text-[13px] font-medium uppercase tracking-[0.08em] text-brown-muted transition-colors duration-200 hover:text-brown"
+                >
+                  About
+                </Link>
+              </li>
             </ul>
           </nav>
 
           <div className="flex items-center gap-4 text-brown-muted">
-           <div className="group relative flex flex-col items-center">
-    <button
-        type="button"
-        aria-label="Search"
-        className="hover:text-brown"
-    >
-        <SearchIcon />
-    </button>
+            <div className="group relative flex flex-col items-center">
+              <button
+                type="button"
+                aria-label="Search"
+                className="hover:text-brown"
+              >
+                <SearchIcon />
+              </button>
 
-    <span className="absolute top-full mt-2 whitespace-nowrap text-xs text-brown opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-        Search
-    </span>
-</div>
+              <span className="absolute top-full mt-2 whitespace-nowrap text-xs text-brown opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                Search
+              </span>
+            </div>
 
-           <div className="group relative flex flex-col items-center">
-    <Link
-        to="/login"
-        aria-label="Account"
-        className="hover:text-brown"
-    >
-        <UserIcon />
-    </Link>
+            <div className="group relative flex flex-col items-center">
+              <Link
+                to="/login"
+                aria-label={user ? `Account (${user.email})` : 'Account'}
+                className="relative hover:text-brown"
+              >
+                <UserIcon />
+                {user && (
+                  <span className="absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full bg-emerald-600 ring-1.5 ring-white" />
+                )}
+              </Link>
 
-    <span className="absolute top-full mt-2 whitespace-nowrap text-xs text-brown opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-        Account
-    </span>
-</div>
-           <div className="group relative flex flex-col items-center">
-    <Link
-        to="/cart"
-        aria-label={`Cart with ${totalItems} items`}
-        className="relative hover:text-brown"
-    >
-        <BagIcon />
+              <span className="absolute top-full mt-2 whitespace-nowrap text-xs text-brown opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                {user ? (user.user_metadata?.full_name?.split(' ')[0] || 'My Account') : 'Account'}
+              </span>
+            </div>
 
-        {totalItems > 0 && (
-            <span className="absolute -right-2.5 -top-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-gold px-1 text-[9px] font-bold text-brown-dark">
-                {totalItems > 99 ? '99+' : totalItems}
-            </span>
-        )}
-    </Link>
+            <div className="group relative flex flex-col items-center">
+              <Link
+                to="/cart"
+                aria-label={`Cart with ${totalItems} items`}
+                className="relative hover:text-brown"
+              >
+                <BagIcon />
 
-    <span className="absolute top-full mt-2 whitespace-nowrap text-xs text-brown opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-        Cart
-    </span>
-</div>
+                {totalItems > 0 && (
+                  <span className="absolute -right-2.5 -top-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-gold px-1 text-[9px] font-bold text-brown-dark">
+                    {totalItems > 99 ? '99+' : totalItems}
+                  </span>
+                )}
+              </Link>
+
+              <span className="absolute top-full mt-2 whitespace-nowrap text-xs text-brown opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                Cart
+              </span>
+            </div>
+
+            {/* Mobile Hamburger Menu Button */}
+            <div className="flex items-center lg:hidden">
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen((prev) => !prev)}
+                aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                className="hover:text-brown focus:outline-none"
+              >
+                {mobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
+              </button>
+            </div>
           </div>
         </div>
+
+        {/* Mobile Navigation Dropdown */}
+        {mobileMenuOpen && (
+          <div className="border-t border-brown/10 bg-cream-light px-6 py-4 shadow-sm lg:hidden">
+            <ul className="flex flex-col gap-3">
+              <li>
+                <Link
+                  to="/collection"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block py-1 text-sm font-medium uppercase tracking-[0.08em] text-brown-muted hover:text-brown"
+                >
+                  Shop
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="/#collections"
+                  onClick={handleCollectionClick}
+                  className="block cursor-pointer py-1 text-sm font-medium uppercase tracking-[0.08em] text-brown-muted hover:text-brown"
+                >
+                  Collection
+                </a>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block py-1 text-sm font-medium uppercase tracking-[0.08em] text-brown-muted hover:text-brown"
+                >
+                  About
+                </Link>
+              </li>
+              <li className="border-t border-brown/10 pt-2">
+                <Link
+                  to="/orders"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block py-1 text-sm font-medium uppercase tracking-[0.08em] text-brown-muted hover:text-brown"
+                >
+                  My Orders
+                </Link>
+              </li>
+              <li>
+                {user ? (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      signOut()
+                      setMobileMenuOpen(false)
+                    }}
+                    className="block py-1 text-sm font-medium uppercase tracking-[0.08em] text-red-700 hover:text-red-900 text-left w-full"
+                  >
+                    Sign Out ({user.email})
+                  </button>
+                ) : (
+                  <Link
+                    to="/login"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block py-1 text-sm font-medium uppercase tracking-[0.08em] text-gold-dark hover:text-brown font-semibold"
+                  >
+                    Sign In / Register
+                  </Link>
+                )}
+              </li>
+            </ul>
+          </div>
+        )}
       </nav>
     </header>
   )

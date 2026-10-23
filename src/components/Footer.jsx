@@ -7,7 +7,6 @@ const navLinks = [
   { label: 'Exchange Orders', path: '/exchange-orders' },
   { label: 'Contact Us', path: '/contact' },
 ]
-const policyLinks = ['Disclaimer', 'Exchange Only', 'Terms & Conditions', 'Privacy Policy']
 function SocialIcon({ children, label }) {
   return (
     <a

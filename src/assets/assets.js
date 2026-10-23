@@ -1,30 +1,21 @@
-// Icons
-import about_icon from "./about icon.jpg";
-import bin_icon from "./bin icon.jpg";
-import cart_icon from "./cart icon.jpg";
-import cross_icon from "./cross icon.jpg";
-import dropdown_icon from "./dropdown.jpg";
-import menu_icon from "./menu icon.jpg";
+// Placeholder asset exports for ShriTattvam
+import pooja1 from './placeholders/pooja-kit.svg'
+import pooja2 from './placeholders/incense.svg'
+import pooja3 from './placeholders/decor.svg'
+import pooja4 from './placeholders/combo.svg'
+import pooja5 from './placeholders/product-1.svg'
+import pooja6 from './placeholders/product-2.svg'
+import pooja7 from './placeholders/product-3.svg'
+import pooja8 from './placeholders/product-4.svg'
+import pooja9 from './placeholders/product-5.svg'
 
-// Pooja Kit Images
-import pooja1 from "./pooja1.jpg";
-import pooja2 from "./pooja2.jpg";
-import pooja3 from "./pooja3.jpg";
-import pooja4 from "./pooja4.jpg";
-import pooja5 from "./pooja5.jpg";
-import pooja6 from "./pooja6.jpg";
-import pooja7 from "./pooja7.jpg";
-import pooja8 from "./pooja8.jpg";
-import pooja9 from "./pooja9.jpg";
-
-// Export all assets
 export const assets = {
-  about_icon,
-  bin_icon,
-  cart_icon,
-  cross_icon,
-  dropdown_icon,
-  menu_icon,
+  about_icon: pooja1,
+  bin_icon: pooja1,
+  cart_icon: pooja1,
+  cross_icon: pooja1,
+  dropdown_icon: pooja1,
+  menu_icon: pooja1,
 
   pooja1,
   pooja2,
@@ -35,4 +26,4 @@ export const assets = {
   pooja7,
   pooja8,
   pooja9,
-};
+}

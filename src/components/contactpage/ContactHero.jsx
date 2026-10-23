@@ -1,5 +1,3 @@
-import React from "react";
-import { Link } from "react-router-dom";
 import contactHeroImage from "../../assets/placeholders/ContactHero.svg";
 import Breadcrumb from "../Breadcrumb";
 const ContactHero = () => {

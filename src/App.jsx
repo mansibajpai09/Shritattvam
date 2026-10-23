@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { CartProvider } from './context/CartContext'
+import { AuthProvider } from './context/AuthContext'
 import ScrollToTop from "./components/ScrollToTop";
 
 
@@ -20,15 +21,20 @@ import PrivacyPolicy from './pages/PrivacyPolicy'
 
 function App() {
   return (
-    <CartProvider>
-      <BrowserRouter>
-      <ScrollToTop />
+    <AuthProvider>
+      <CartProvider>
+        <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
 
           <Route
             path="/collection"
             element={<Collection />}
+          />
+          <Route
+            path="/shop"
+            element={<Navigate to="/collection" replace />}
           />
 
           <Route
@@ -80,7 +86,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </CartProvider>
-    
+    </AuthProvider>
   )
 }
 

@@ -32,11 +32,11 @@ function ShopLink() {
 }
 function TopPicks() {
   return (
-    <section className="py-16 md:py-20" id="top-picks">
+    <section className="py-16 md:py-20 scroll-mt-28" id="collections">
+      <span id="top-picks" className="sr-only" aria-hidden="true" />
       <div className="section-container">
         <div className="mb-8 flex items-center justify-between">
-          <h2 className="section-heading">Top Picks</h2>
-          
+          <h2 className="section-heading">Collections</h2>
         </div>
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_1fr] lg:grid-rows-[1fr_1fr] lg:gap-5">
           {/* Large card — Pooja Kits */}

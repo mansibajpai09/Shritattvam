@@ -2,6 +2,11 @@ import product1 from '../assets/placeholders/product-1.svg'
 import product2 from '../assets/placeholders/product-2.svg'
 import product3 from '../assets/placeholders/product-3.svg'
 import product4 from '../assets/placeholders/product-4.svg'
+import product5 from '../assets/placeholders/product-5.svg'
+import poojaKitImg from '../assets/placeholders/pooja-kit.svg'
+import incenseImg from '../assets/placeholders/incense.svg'
+import comboImg from '../assets/placeholders/combo.svg'
+import decorImg from '../assets/placeholders/decor.svg'
 
 export const products = [
   {
@@ -18,6 +23,7 @@ export const products = [
     rating: 4.8,
     reviews: 101,
     inStock: true,
+    createdAt: '2026-01-10',
     features: [
       'Premium quality materials',
       'Perfect for daily pooja',
@@ -39,6 +45,7 @@ export const products = [
     rating: 4.7,
     reviews: 84,
     inStock: true,
+    createdAt: '2026-02-15',
     features: [
       'Premium sandalwood fragrance',
       'Long-lasting aroma',
@@ -60,6 +67,7 @@ export const products = [
     rating: 4.8,
     reviews: 67,
     inStock: true,
+    createdAt: '2026-03-01',
     features: [
       'Premium brass finish',
       'Elegant lotus design',
@@ -81,11 +89,188 @@ export const products = [
     rating: 4.6,
     reviews: 52,
     inStock: true,
+    createdAt: '2026-03-20',
     features: [
       'Herbal fragrance',
       'Pleasant natural aroma',
       'Ideal for daily rituals',
       'Easy to use',
+    ],
+  },
+  {
+    id: 5,
+    name: 'Maha Aarti Brass Thali Set',
+    subtitle: 'Complete 7-piece embossed pooja thali',
+    description:
+      'A magnificent handcrafted pure brass thali set including diya, agarbatti stand, bell, and kumkum katoris.',
+    price: 2499,
+    originalPrice: 2999,
+    discount: 17,
+    image: product5,
+    category: 'Decor',
+    rating: 4.9,
+    reviews: 92,
+    inStock: true,
+    createdAt: '2026-04-05',
+    features: [
+      'Pure heavy brass craftsmanship',
+      'Intricate floral edge engraving',
+      'Complete 7-piece ceremonial set',
+      'Tarnish-resistant coating',
+    ],
+  },
+  {
+    id: 6,
+    name: 'Pure Camphor & Sambrani Combo',
+    subtitle: 'Sacred purification bundle for home & office',
+    description:
+      'Curated value pack featuring 100% pure Bhimseni camphor crystals and natural fragrant sambrani dhoop cups.',
+    price: 599,
+    originalPrice: 749,
+    discount: 20,
+    image: comboImg,
+    category: 'Combos',
+    rating: 4.8,
+    reviews: 110,
+    inStock: true,
+    createdAt: '2026-05-12',
+    features: [
+      '100% pure Bhimseni camphor',
+      'Chemical-free natural resins',
+      'Calming, positive energy booster',
+      'Airtight luxury tins included',
+    ],
+  },
+  {
+    id: 7,
+    name: 'Kesar Chandan Luxury Agarbatti',
+    subtitle: 'Saffron & sandalwood artisanal incense',
+    description:
+      'Artisanal hand-rolled sticks infused with natural saffron extracts and pure Mysore sandalwood oil.',
+    price: 449,
+    originalPrice: 499,
+    discount: 10,
+    image: incenseImg,
+    category: 'Incense',
+    rating: 4.9,
+    reviews: 76,
+    inStock: true,
+    createdAt: '2026-06-01',
+    features: [
+      'Handmade with natural extracts',
+      'Slow burn time over 60 minutes',
+      'Low smoke carbon-free formula',
+      'Eco-friendly packaging',
+    ],
+  },
+  {
+    id: 8,
+    name: 'Handcrafted Brass Ghanti (Pooja Bell)',
+    subtitle: 'Resonant temple bell with Nandi finial',
+    description:
+      'Cast in heavy sonorous bell brass producing clear spiritual frequencies for auspicious prayer beginnings.',
+    price: 749,
+    originalPrice: 899,
+    discount: 17,
+    image: decorImg,
+    category: 'Decor',
+    rating: 4.7,
+    reviews: 45,
+    inStock: true,
+    createdAt: '2026-06-18',
+    features: [
+      'Traditional Nandi deity motif',
+      'Rich sustained acoustic resonance',
+      'Ergonomic solid brass handle',
+      'Ideal for home mandirs',
+    ],
+  },
+  {
+    id: 9,
+    name: 'Sampoorna Festive Pooja Kit',
+    subtitle: 'Grand celebration kit with 31 sacred items',
+    description:
+      'Comprehensive luxury pooja box with gangajal, chandan, roli, supari, pure camphor, and sacred ritual accessories.',
+    price: 2899,
+    originalPrice: 3499,
+    discount: 17,
+    image: poojaKitImg,
+    category: 'Pooja Kits',
+    rating: 4.9,
+    reviews: 135,
+    inStock: true,
+    createdAt: '2026-07-22',
+    features: [
+      '31 authentic Vedic essentials',
+      'Organized in separate sacred compartments',
+      'Includes illustrated step-by-step vidhi book',
+      'Gift-ready silk-finish hardboard box',
+    ],
+  },
+  {
+    id: 10,
+    name: 'Guggal & Loban Natural Dhoop Cups',
+    subtitle: 'Natural havan resins in charcoal-free cups',
+    description:
+      'Ancient Ayurvedic formulation of pure Guggal and Loban resins set in organic cow dung cups for auspicious havan aura.',
+    price: 399,
+    originalPrice: 449,
+    discount: 11,
+    image: product4,
+    category: 'Dhoop',
+    rating: 4.8,
+    reviews: 63,
+    inStock: true,
+    createdAt: '2026-08-14',
+    features: [
+      'Charcoal-free natural havan samagri',
+      'Purifies indoor air and dispels negative energy',
+      'Includes ceramic burner plate',
+      'Pack of 24 cups',
+    ],
+  },
+  {
+    id: 11,
+    name: 'Shubh Aarambh Daily Rituals Bundle',
+    subtitle: 'Brass diya, incense, dhoop & cotton wicks',
+    description:
+      'An all-in-one devotion bundle designed for modern spiritual homes, combining our top daily essentials.',
+    price: 1199,
+    originalPrice: 1499,
+    discount: 20,
+    image: comboImg,
+    category: 'Combos',
+    rating: 4.7,
+    reviews: 58,
+    inStock: true,
+    createdAt: '2026-09-02',
+    features: [
+      'Includes 1 brass diya & 2 incense packs',
+      'Premium round cotton phool bati wicks',
+      'Over 20% savings versus buying individually',
+      'Delightful devotional gift packaging',
+    ],
+  },
+  {
+    id: 12,
+    name: 'Akhand Brass Diya with Borosilicate Glass',
+    subtitle: 'Continuous burning deepak for festivals',
+    description:
+      'Wind-resistant heavy brass deepak designed to burn steadily during prolonged prayers, meditations, and Navratri.',
+    price: 1299,
+    originalPrice: 1599,
+    discount: 19,
+    image: product3,
+    category: 'Decor',
+    rating: 4.8,
+    reviews: 81,
+    inStock: true,
+    createdAt: '2026-09-28',
+    features: [
+      'Heat-resistant borosilicate glass chimney',
+      'Easy refilling and wick adjustment',
+      'Safely burns unattended for 24+ hours',
+      'Polished radiant golden brass luster',
     ],
   },
 ]

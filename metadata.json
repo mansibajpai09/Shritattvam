@@ -1,0 +1,8 @@
+{
+  "name": "ShriTattvam",
+  "description": "ShriTattvam — Premium pooja essentials and sacred spiritual goods store",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

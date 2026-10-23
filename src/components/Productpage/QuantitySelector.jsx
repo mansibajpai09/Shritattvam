@@ -1,4 +1,3 @@
-import React from "react";
 
 const QuantitySelector = ({ quantity, setQuantity }) => {
   const decrease = () => {
